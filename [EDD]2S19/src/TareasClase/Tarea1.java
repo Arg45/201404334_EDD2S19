@@ -55,18 +55,26 @@ public class Tarea1 {
         menu();
     }
     public void menuCE(){
+        String in;
+        int n;
         System.out.println("------------------------------------------\n"
                          + "Bienvenido a Criba de Eratostenes\n"
                          + "Por favor ingrese un numero natural");
-        op=entrada.nextInt();
+        in=entrada.nextLine();
+        if(!validarNumero(in)){
+            System.out.println("------------------------------------------\n"
+                             + "El valor ingresado no es valido");
+            menu();
+        }
+        n=Integer.parseInt(in);
         
-        if(op>0){
-            criba(op);
+        if(n>0){
+            criba(n);
         }else{
             System.out.println("------------------------------------------\n"
                              + "El valor ingresado no es correcto\n"
                              + "Por favor ingrese un numero natural");
-            op=entrada.nextInt();
+            menuCE();
         }
     }
     public void menuD(){

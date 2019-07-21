@@ -123,16 +123,26 @@ public class Tarea1 {
             menuD();
         }    
     }
-    public void criba(int n){        
+    public void criba(int n){   
+        Double a,result;
+        String cadena = String.valueOf(n);
         System.out.println("------------------------------------------\n"
                              + "Los numeros primos antes de: "+n
                              + " son: ");
         int i;
-        for(i=2;i<=n;i++){
-            if(i%7==1 || i%5==1 || i%3==1 || i%2==1){
-                System.out.println(i);
-            }
+//        for(i=2;i<=n;i++){
+//            if(i%7==1 || i%5==1 || i%3==1 || i%2==1){
+//                System.out.println(i);
+//            }
+//        }
+        System.out.println("antes del for");
+        a=Double.parseDouble(cadena);
+        for(i=2;i<=a;i++){
+            result=Math.pow(i, 0.5)/(Math.log(Math.pow(i, 0.5))-1);
+            System.out.println("asdf");
+            System.out.println(result);
         }
+        System.out.println("despues del for");
     }
     
     private boolean validarNumero(String num){

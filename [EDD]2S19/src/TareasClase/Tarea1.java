@@ -1,13 +1,10 @@
 package TareasClase;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Tarea1 {
     Scanner entrada;
     int op;
     String[] diaSemana;
-
     public Tarea1() {
         op=0;
         entrada = new Scanner(System.in);
@@ -19,8 +16,7 @@ public class Tarea1 {
         diaSemana[4]="Jueves";
         diaSemana[5]="Viernes";
         diaSemana[6]="Sabado";  
-    }
-    
+    }    
     public void menu(){
         String in;
         System.out.println("------------------------------------------\n"
@@ -137,33 +133,27 @@ public class Tarea1 {
         //llenando la lista desde 2 a n
         for(i=2;i<n;i++){
             listaNumeros.add(i);
-            /**asdfasdf*/
-            System.out.println("nada");
         }
         
         for(i=0;i<listaNumeros.size();i++){
             if(listaNumeros.get(i)%2==0){
                 if(listaNumeros.get(i)==2){                
                 }else{
-//                    listaNumeros.remove(i);
                     listaNumeros.set(i, 0);
                 }                
             } else if(listaNumeros.get(i)%3==0){
                 if(listaNumeros.get(i)==3){                
                 }else{
-//                    listaNumeros.remove(i);
                     listaNumeros.set(i, 0);
                 }                
             } else if(listaNumeros.get(i)%5==0){
                 if(listaNumeros.get(i)==5){                
                 }else{
-//                    listaNumeros.remove(i);
                     listaNumeros.set(i, 0);
                 }                
             } else if(listaNumeros.get(i)%7==0){
                 if(listaNumeros.get(i)==7){                
                 }else{
-//                    listaNumeros.remove(i);
                     listaNumeros.set(i, 0);
                 } 
             }
@@ -173,14 +163,12 @@ public class Tarea1 {
             if(listaNumeros.get(i)!=0) System.out.print(" "+listaNumeros.get(i)+",");            
         }
         System.out.println("");        
-    }
-    
+    }    
     private boolean validarNumero(String num){
         try {
             Integer.parseInt(num);
             return true;
         } catch (NumberFormatException e) {
-//            System.out.println("Error "+e);
             return false;
         }
     }

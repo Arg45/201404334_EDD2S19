@@ -137,6 +137,8 @@ public class Tarea1 {
         //llenando la lista desde 2 a n
         for(i=2;i<n;i++){
             listaNumeros.add(i);
+            /**asdfasdf*/
+            System.out.println("nada");
         }
         
         for(i=0;i<listaNumeros.size();i++){

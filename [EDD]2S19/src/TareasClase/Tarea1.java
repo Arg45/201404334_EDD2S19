@@ -1,5 +1,6 @@
 package TareasClase;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tarea1 {
@@ -107,7 +108,11 @@ public class Tarea1 {
                 menu();
         }
         anio=Integer.parseInt(in);
-        
+        if(anio>1700){
+            System.out.println("------------------------------------------\n"
+                             + "El valor ingresado no es valido");
+            menu();
+        }
         if(dia > 0 && mes > 0 && anio > 0){
             result=((anio-1)%7+((anio-1)/4-(3*((anio-1)/100+1)/4))%7+mes+dia%7)%7;
             int i;
@@ -125,24 +130,83 @@ public class Tarea1 {
     }
     public void criba(int n){   
         Double a,result;
+        ArrayList<Integer> listaNumeros = new ArrayList<>();
         String cadena = String.valueOf(n);
         System.out.println("------------------------------------------\n"
-                             + "Los numeros primos antes de: "+n
-                             + " son: ");
+                             + "Los numeros primos antes de \""+n
+                             + "\" son: ");
         int i;
 //        for(i=2;i<=n;i++){
 //            if(i%7==1 || i%5==1 || i%3==1 || i%2==1){
 //                System.out.println(i);
 //            }
 //        }
-        System.out.println("antes del for");
-        a=Double.parseDouble(cadena);
-        for(i=2;i<=a;i++){
-            result=Math.pow(i, 0.5)/(Math.log(Math.pow(i, 0.5))-1);
-            System.out.println("asdf");
-            System.out.println(result);
+//        a=Double.parseDouble(cadena);
+//        for(i=0;i<=n;i++){
+//            result=Math.pow(i, 0.5)/(Math.log(Math.pow(i, 0.5))-1);
+//            System.out.println(result);
+//        }
+        //llenando la lista desde 2 a n
+        for(i=2;i<n;i++){
+            listaNumeros.add(i);
         }
-        System.out.println("despues del for");
+        
+        for(i=0;i<=listaNumeros.size();i++){
+            if(listaNumeros.get(i)==null){
+                break;
+            }else{
+            if(listaNumeros.get(i)%2==0){
+                if(listaNumeros.get(i)==2){                
+                }else{
+                    listaNumeros.remove(i);
+                }                
+            }
+            else if(listaNumeros.get(i)%3==0){
+                if(listaNumeros.get(i)==3){                
+                }else{
+                    listaNumeros.remove(i);
+                }                
+            }
+            else if(listaNumeros.get(i)%5==0){
+                if(listaNumeros.get(i)==5){                
+                }else{
+                    listaNumeros.remove(i);
+                }                
+            }
+            else if(listaNumeros.get(i)%7==0){
+                if(listaNumeros.get(i)==7){                
+                }else{
+                    listaNumeros.remove(i);
+                }                
+            }
+            }
+        }
+        
+//        for(i=2;i<=listaNumeros.size();i++){
+//            if(listaNumeros.get(i)==(7*i)){
+//                listaNumeros.remove(i);
+//            }
+//        }
+//        for(i=2;i<=listaNumeros.size();i++){
+//            if(listaNumeros.get(i)==(5*i)){
+//                listaNumeros.remove(i);
+//            }
+//        }
+//        for(i=2;i<=listaNumeros.size();i++){
+//            if(listaNumeros.get(i)==(3*i)){
+//                listaNumeros.remove(i);
+//            }
+//        }
+//        for(i=2;i<=listaNumeros.size();i++){
+//            if(listaNumeros.get(i)==(2*i)){
+//                listaNumeros.remove(i);
+//            }
+//        }
+        
+        for(i=0;i<listaNumeros.size();i++){
+            System.out.print(" "+listaNumeros.get(i)+",");            
+        }
+        System.out.println("");        
     }
     
     private boolean validarNumero(String num){

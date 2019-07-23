@@ -129,82 +129,46 @@ public class Tarea1 {
         }    
     }
     public void criba(int n){   
-        Double a,result;
         ArrayList<Integer> listaNumeros = new ArrayList<>();
-        String cadena = String.valueOf(n);
         System.out.println("------------------------------------------\n"
                              + "Los numeros primos antes de \""+n
                              + "\" son: ");
         int i;
-//        for(i=2;i<=n;i++){
-//            if(i%7==1 || i%5==1 || i%3==1 || i%2==1){
-//                System.out.println(i);
-//            }
-//        }
-//        a=Double.parseDouble(cadena);
-//        for(i=0;i<=n;i++){
-//            result=Math.pow(i, 0.5)/(Math.log(Math.pow(i, 0.5))-1);
-//            System.out.println(result);
-//        }
         //llenando la lista desde 2 a n
         for(i=2;i<n;i++){
             listaNumeros.add(i);
         }
         
-        for(i=0;i<=listaNumeros.size();i++){
-            if(listaNumeros.get(i)==null){
-                break;
-            }else{
+        for(i=0;i<listaNumeros.size();i++){
             if(listaNumeros.get(i)%2==0){
                 if(listaNumeros.get(i)==2){                
                 }else{
-                    listaNumeros.remove(i);
+//                    listaNumeros.remove(i);
+                    listaNumeros.set(i, 0);
                 }                
-            }
-            else if(listaNumeros.get(i)%3==0){
+            } else if(listaNumeros.get(i)%3==0){
                 if(listaNumeros.get(i)==3){                
                 }else{
-                    listaNumeros.remove(i);
+//                    listaNumeros.remove(i);
+                    listaNumeros.set(i, 0);
                 }                
-            }
-            else if(listaNumeros.get(i)%5==0){
+            } else if(listaNumeros.get(i)%5==0){
                 if(listaNumeros.get(i)==5){                
                 }else{
-                    listaNumeros.remove(i);
+//                    listaNumeros.remove(i);
+                    listaNumeros.set(i, 0);
                 }                
-            }
-            else if(listaNumeros.get(i)%7==0){
+            } else if(listaNumeros.get(i)%7==0){
                 if(listaNumeros.get(i)==7){                
                 }else{
-                    listaNumeros.remove(i);
-                }                
-            }
+//                    listaNumeros.remove(i);
+                    listaNumeros.set(i, 0);
+                } 
             }
         }
-        
-//        for(i=2;i<=listaNumeros.size();i++){
-//            if(listaNumeros.get(i)==(7*i)){
-//                listaNumeros.remove(i);
-//            }
-//        }
-//        for(i=2;i<=listaNumeros.size();i++){
-//            if(listaNumeros.get(i)==(5*i)){
-//                listaNumeros.remove(i);
-//            }
-//        }
-//        for(i=2;i<=listaNumeros.size();i++){
-//            if(listaNumeros.get(i)==(3*i)){
-//                listaNumeros.remove(i);
-//            }
-//        }
-//        for(i=2;i<=listaNumeros.size();i++){
-//            if(listaNumeros.get(i)==(2*i)){
-//                listaNumeros.remove(i);
-//            }
-//        }
-        
+
         for(i=0;i<listaNumeros.size();i++){
-            System.out.print(" "+listaNumeros.get(i)+",");            
+            if(listaNumeros.get(i)!=0) System.out.print(" "+listaNumeros.get(i)+",");            
         }
         System.out.println("");        
     }

@@ -1,8 +1,21 @@
 package Tarea2;
 
 public class Tarea2 {
+    Bolsa inicio;
     
+    public void bolsavacia(){
     
+    }
+    public void insertar(Bolsa b){
+        
+    }
+    public boolean estaVacia(){
+        return inicio==null;
+    }     
+    public void cuantos(){
+    
+    }
+            
     public static void main(String[] args) {
         Tarea2 t2=new Tarea2();
         
@@ -13,7 +26,7 @@ public class Tarea2 {
 //Sintaxis
 //- bolsavacia = Bolsa
 //- insertar(Bolsa,Elemento) = Bolsa
-//- esvacia(Bolsa) = booleano
+//- esvacia(Bolsa) = booleano               listo
 //- cuantos(Bolsa,Elemento) = natural
 //Semántica 
 //- esvacia(bolsavacia) = cierto

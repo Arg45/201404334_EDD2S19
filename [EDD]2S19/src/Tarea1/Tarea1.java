@@ -172,5 +172,8 @@ public class Tarea1 {
             return false;
         }
     }
+    public static void main(String[] args) {
+        Tarea1 t1 = new Tarea1();
+        t1.menu();
+    }
 }
-

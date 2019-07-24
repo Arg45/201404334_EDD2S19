@@ -88,6 +88,11 @@ public class Tarea1 {
             menu();
         }
         dia=Integer.parseInt(in);
+        if(dia>0 && dia<=31){
+            System.out.println("------------------------------------------\n"
+                             + "El valor ingresado no es valido");
+            menu();
+        }
         System.out.println("Mes:");
         in=entrada.nextLine();
         if(!validarNumero(in)){
@@ -96,6 +101,11 @@ public class Tarea1 {
             menu();
         }
         mes=Integer.parseInt(in);
+        if(mes>0 && mes<=12){
+            System.out.println("------------------------------------------\n"
+                             + "El valor ingresado no es valido");
+            menu();
+        }
         System.out.println("Ano:");
         in=entrada.nextLine();
         if(!validarNumero(in)){
@@ -104,7 +114,7 @@ public class Tarea1 {
                 menu();
         }
         anio=Integer.parseInt(in);
-        if(anio>1700){
+        if(anio>=1700){
             System.out.println("------------------------------------------\n"
                              + "El valor ingresado no es valido");
             menu();

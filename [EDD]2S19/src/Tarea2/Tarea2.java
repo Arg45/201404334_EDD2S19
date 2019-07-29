@@ -114,13 +114,13 @@ public class Tarea2 {
     boolean existe(int id){
         if(inicio != null){
             Elemento act = inicio;
-            while(act!=null){
+            do{
                 if(act.getID()== id){
                     return true;
                 }else{
                     act=act.getSiguiente();
                 }
-            }
+            }while(act!=inicio);
         }
         return false;
     }

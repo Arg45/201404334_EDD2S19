@@ -3,7 +3,8 @@ package Tarea2;
 import java.util.Scanner;
 
 public class Tarea2 {
-    Bolsa inicio, fin;
+    //clase Bolsa
+    Elemento inicio,fin;
     Scanner entrada;
     int op;
 
@@ -48,25 +49,36 @@ public class Tarea2 {
     public void menuI(){
         System.out.println("Por favor, ingrese los siguientes datos.");
         System.out.println("ID: ");
-        int ID = entrada.nextInt();
+        String in = entrada.nextLine();
+        if(!validarNumero(in)){
+            System.out.println("------------------------------------------\n"
+                             + "El valor ingresado no es valido");
+        }
+        int ID = Integer.parseInt(in);
         System.out.println("Item: ");
-        String item = entrada.next();
+        String item = entrada.nextLine();
         if(existe(ID)){
-            System.out.println("Error, Nodo existente.");
+            System.out.println("------------------------------------------\n"
+                             + "Error, Elemento existente.");
         }else{
-            Bolsa b = new Bolsa(ID, item);
+            Elemento b = new Elemento(ID, item);
             insertar(b);
-            System.out.println("Insertado con exito!\n");
+            System.out.println("------------------------------------------\n"
+                             + "Insertado con exito!");
         }
     }
-    public void bolsavacia(){
-    
-    }
-    public void insertar(Bolsa nuevo){
+    public void insertar(Elemento nuevo){
         if(estaVacia()){
             inicio=nuevo;
+            inicio.setSiguiente(inicio);
         }else{
-            fin.setSiguiente(nuevo);
+            if(inicio.getSiguiente()==inicio){
+                nuevo.setSiguiente(inicio);
+                inicio.setSiguiente(nuevo); 
+            }else{
+                fin.setSiguiente(nuevo);
+                nuevo.setSiguiente(inicio);    
+            }
         }
         fin=nuevo;
     }
@@ -74,15 +86,21 @@ public class Tarea2 {
         return inicio==null;
     }     
     public void cuantos(){
-        int i;
-        i = 0;
-        Bolsa temp = inicio;
-        while(temp != null){
-            System.out.println("ID: "+temp.getID()+" Item: "+temp.getItem());
-            temp = temp.getSiguiente();
-            i++;
-        }
-        System.out.println(" Existe/n: "+i+" elemento/s");
+        if(estaVacia()){
+            System.out.println("------------------------------------------\n"
+                             + " Error, No existen elementos insertados.");
+        }else{
+            int i;
+            i = 0;
+            Elemento temp = inicio;
+            System.out.println("------------------------------------------");
+            do{
+                System.out.println("ID: "+temp.getID()+" Item: "+temp.getItem());
+                temp = temp.getSiguiente();
+                i++;
+            }while(temp != inicio);
+            System.out.println(" \nExiste/n: "+i+" elemento/s");
+        }        
     }
     
     private boolean validarNumero(String num){
@@ -95,7 +113,7 @@ public class Tarea2 {
     }
     boolean existe(int id){
         if(inicio != null){
-            Bolsa act = inicio;
+            Elemento act = inicio;
             while(act!=null){
                 if(act.getID()== id){
                     return true;
@@ -111,15 +129,3 @@ public class Tarea2 {
         t2.menu();
     }
 }
-
-//Tipo Bolsa (Elemento)
-//Sintaxis
-//- bolsavacia = Bolsa
-//- insertar(Bolsa,Elemento) = Bolsa
-//- esvacia(Bolsa) = booleano               listo
-//- cuantos(Bolsa,Elemento) = natural       listo, creo
-//Semántica 
-//- esvacia(bolsavacia) = cierto
-//- esvacia(poner(b,e)) = falso
-//- cuantos(bolsavacia,e) = cero
-//- cuantos(poner(b,f),e) = si f=e  sucesor(cuantos(b,e)) | cuantos(b,e)

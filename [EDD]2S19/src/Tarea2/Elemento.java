@@ -1,11 +1,11 @@
 package Tarea2;
 
-public class Bolsa {
+public class Elemento {
     private int ID;
     private String item;
-    private Bolsa siguiente;
+    private Elemento siguiente;
 
-    public Bolsa(int ID, String item) {
+    public Elemento(int ID, String item) {
         this.ID = ID;
         this.item = item;
         this.siguiente = null;
@@ -42,14 +42,14 @@ public class Bolsa {
     /**
      * @return the siguiente
      */
-    public Bolsa getSiguiente() {
+    public Elemento getSiguiente() {
         return siguiente;
     }
 
     /**
      * @param siguiente the siguiente to set
      */
-    public void setSiguiente(Bolsa siguiente) {
+    public void setSiguiente(Elemento siguiente) {
         this.siguiente = siguiente;
     }
     

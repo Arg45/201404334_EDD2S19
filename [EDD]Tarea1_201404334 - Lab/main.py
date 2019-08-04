@@ -1,37 +1,26 @@
-#import doble as dob
-# 5 INSERCIONES AL INICIO
-# 5 INSERCIONES AL FINAL
-# GRAFICAR
-# 5 INSERCIONES EN POSICIONES
-# GRAFICAR
-# OBTENER VALOR
-# ELIMINAR POR MEDIO DEL INDICE
-# GRAFICAR
-"""
-i=0
-class doble:
-    
-    def inc(self):
-        print(i)
-        global i
-        i = 1
-        print(i)
-        
+import doble as dob       
 
 if __name__ == "__main__":
-    dob=doble()
-    dob.inc()
-    """
-
-mi_variable_global = 20
- 
-def una_funcion():
-    global mi_variable_global #En este caso sí vamos a modificar a la global
-    mi_variable_global = 10 #Ahora la variable es 10, no 20
-    print("Una función, la variable global es: " + str(mi_variable_global))
- 
-def otra_funcion():
-    print("Otra función, la variable global es: " + str(mi_variable_global))
- 
-una_funcion()
-otra_funcion()
+    dob.Doble().imprimir()
+    # 5 INSERCIONES AL INICIO
+    dob.Doble().insertar_inicio(10)
+    dob.Doble().insertar_inicio(20)
+    dob.Doble().insertar_inicio(30)
+    dob.Doble().insertar_inicio(40)
+    dob.Doble().insertar_inicio(50)
+    dob.Doble().imprimir()
+    # 5 INSERCIONES AL FINAL
+    """dob.Doble().insertar_final(100)
+    dob.Doble().insertar_final(200)
+    dob.Doble().insertar_final(300)
+    dob.Doble().insertar_final(400)
+    dob.Doble().insertar_final(500)"""
+   # GRAFICAR
+    #dob.Doble().graficar()
+    # 5 INSERCIONES EN POSICIONES
+    # GRAFICAR
+    #dob.Doble().graficar()
+    # OBTENER VALOR
+    # ELIMINAR POR MEDIO DEL INDICE
+    # GRAFICAR
+    #dob.Doble().graficar()

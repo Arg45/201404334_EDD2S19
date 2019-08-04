@@ -9,6 +9,8 @@ class pruebaImportarArchivos:
 if __name__ == '__main__':
     e=pruebaImportarArchivos()
     e.m()
+    print("\n")
+    a2.laotraclase().metodounico()
 
     
 

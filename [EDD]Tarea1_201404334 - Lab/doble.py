@@ -7,7 +7,6 @@ class Nodo:
         self.valor = Valor
         self.siguiente = None
         self.anterior = None
-    
 class Doble:
     def __init__ (self):
         self.inicio = None
@@ -93,8 +92,6 @@ class Doble:
                 print("El valor ingresado no existe.")
     
     def graficar1(self):
-
-        
         import os as s
 
         a = open("grafo.dot","r")
@@ -136,7 +133,24 @@ class Doble:
         #dot.render(filename="prueba.gv",directory="C:\Users\argue\OneDrive\Documents\NetBeansProjects",view=True,cleanup=False)
         dot.render('round-table.dot', view=True)
     def graficar3(self):
-        print("a")
+        from graphviz import Digraph as g
+        dot = g(comment='The Round Table')
+        aux = self.inicio
+        texto = "digraph G{\n"
+        while aux is not None:
+            dot.node(str(aux.id), str(aux.valor))
+            
+            if aux.siguiente is not None:                
+                dot.edge(str(aux.id),str(aux.siguiente.id))
+                texto += str(aux.id)+" -> " +str(aux.siguiente.id)+"\n"
+            if aux.anterior is not None:
+                dot.edge(str(aux.id),str(aux.anterior.id))
+                texto += str(aux.id)+" -> " +str(aux.anterior.id)+"\n"
+            texto += str(aux.id)+" [label=\" "+str(aux.valor)+" \"]\n"
+            aux = aux.siguiente
+        texto += "}"
+        #print(texto)
+        dot.render("round-asdftable.dot", view=True)
 
     def imprimir(self):
         if self.inicio==None:
@@ -179,7 +193,7 @@ class Doble:
         dob.insertar_inicio(30)
         dob.insertar_inicio(40)
         dob.insertar_inicio(50)
-        dob.graficar1()
+        dob.graficar2()
         print("\n")
         dob.imprimir()
         print("\n")
@@ -191,7 +205,7 @@ class Doble:
         dob.insertar_final(300)
         dob.insertar_final(400)
         dob.insertar_final(500)
-        dob.graficar1()
+        dob.graficar2()
         print("\n")
         dob.imprimir()
         print("\n")
@@ -199,7 +213,7 @@ class Doble:
         dob.insertar_pos(8,999)
         #dob.insertar_pos(9,1000)
         dob.insertar_pos(100,1000000000)
-        dob.graficar1()
+        dob.graficar2()
         print("\n")
         dob.imprimir()
         print("\n")
@@ -214,14 +228,11 @@ class Doble:
         dob.imprimir()
         print("\n")
 
-        dob.graficar1()
+        dob.graficar2()
 if __name__ == "__main__":    
     dob=Doble()
     #dob.prueba()
     
-
-
-
     # 5 INSERCIONES AL INICIO
     dob.insertar_inicio(10)
     dob.insertar_inicio(20)
@@ -235,5 +246,16 @@ if __name__ == "__main__":
     dob.insertar_final(400)
     dob.insertar_final(500)
     # GRAFICAR
-    dob.graficar2()
-    
+    dob.graficar3() 
+    """# INSERTAR EN POSICIONES
+    dob.insertar_pos(3,777)
+    dob.insertar_pos(8,999)
+    # GRAFICAR
+    dob.graficar2() 
+    # OBTENER EL VALOR DE LA LISTA
+    dob.obtener_pos(2)
+    # ELIMINAR POR MEDIO DEL INDICE
+    dob.eliminar(0)
+    dob.eliminar(4)
+    # GRAFICAR
+    dob.graficar2() """

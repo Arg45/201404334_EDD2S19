@@ -1,5 +1,3 @@
-#import graphviz as g
-
 id=0
 class Nodo:
     def __init__ (self, Id = None, Valor = None):
@@ -8,7 +6,7 @@ class Nodo:
         self.siguiente = None
         self.anterior = None
 class Doble:
-    nombre = 1
+    cod = 1
     def __init__ (self):
         self.inicio = None
         self.fin = None
@@ -134,26 +132,18 @@ class Doble:
         #dot.render(filename="prueba.gv",directory="C:\Users\argue\OneDrive\Documents\NetBeansProjects",view=True,cleanup=False)
         dot.render('round-table.dot', view=True)
     def graficar3(self):
-        
         from graphviz import Digraph as g
         dot = g(comment='Tarea 1 - Lab')
         aux = self.inicio
-        texto = "digraph G{\n"
         while aux is not None:
-            dot.node(str(aux.id), str(aux.valor))
-            
+            dot.node(str(aux.id), str(aux.valor))            
             if aux.siguiente is not None:                
                 dot.edge(str(aux.id),str(aux.siguiente.id))
-                texto += str(aux.id)+" -> " +str(aux.siguiente.id)+"\n"
             if aux.anterior is not None:
                 dot.edge(str(aux.id),str(aux.anterior.id))
-                texto += str(aux.id)+" -> " +str(aux.anterior.id)+"\n"
-            texto += str(aux.id)+" [label=\" "+str(aux.valor)+" \"]\n"
             aux = aux.siguiente
-        texto += "}"
-        #print(texto)
-        dot.render("tarea1_"+str(self.nombre)+".dot", view=True)
-        self.nombre+=1
+        dot.render("tarea1_"+str(self.cod)+".dot", view=True)
+        self.cod+=1
 
     def imprimir(self):
         if self.inicio==None:
@@ -171,7 +161,7 @@ class Doble:
         aux = self.inicio
         while aux != None:
             if index==aux.id:
-                print("ID: "+str(aux.id)+" Valor: "+str(aux.valor)) 
+                print("--> ID: "+str(aux.id)+" Valor: "+str(aux.valor)) 
                 break
             else:
                 aux = aux.siguiente

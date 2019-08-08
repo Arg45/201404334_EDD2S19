@@ -8,6 +8,7 @@ class Nodo:
         self.siguiente = None
         self.anterior = None
 class Doble:
+    nombre = 1
     def __init__ (self):
         self.inicio = None
         self.fin = None
@@ -133,8 +134,9 @@ class Doble:
         #dot.render(filename="prueba.gv",directory="C:\Users\argue\OneDrive\Documents\NetBeansProjects",view=True,cleanup=False)
         dot.render('round-table.dot', view=True)
     def graficar3(self):
+        
         from graphviz import Digraph as g
-        dot = g(comment='The Round Table')
+        dot = g(comment='Tarea 1 - Lab')
         aux = self.inicio
         texto = "digraph G{\n"
         while aux is not None:
@@ -150,7 +152,8 @@ class Doble:
             aux = aux.siguiente
         texto += "}"
         #print(texto)
-        dot.render("round-asdftable.dot", view=True)
+        dot.render("tarea1_"+str(self.nombre)+".dot", view=True)
+        self.nombre+=1
 
     def imprimir(self):
         if self.inicio==None:
@@ -247,15 +250,15 @@ if __name__ == "__main__":
     dob.insertar_final(500)
     # GRAFICAR
     dob.graficar3() 
-    """# INSERTAR EN POSICIONES
+    # INSERTAR EN POSICIONES
     dob.insertar_pos(3,777)
     dob.insertar_pos(8,999)
     # GRAFICAR
-    dob.graficar2() 
+    dob.graficar3() 
     # OBTENER EL VALOR DE LA LISTA
     dob.obtener_pos(2)
     # ELIMINAR POR MEDIO DEL INDICE
     dob.eliminar(0)
     dob.eliminar(4)
     # GRAFICAR
-    dob.graficar2() """
+    dob.graficar3()

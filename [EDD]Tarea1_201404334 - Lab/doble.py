@@ -1,4 +1,4 @@
-import graphviz as g
+#import graphviz as g
 
 id=0
 class Nodo:
@@ -93,6 +93,8 @@ class Doble:
                 print("El valor ingresado no existe.")
     
     def graficar1(self):
+
+        
         import os as s
 
         a = open("grafo.dot","r")
@@ -108,12 +110,34 @@ class Doble:
             aux = aux.siguiente
         texto += "}"
         print(texto)
-       
+        
         a.write(texto)
         a.close()
         #s.system("START cmd.exe /K  \"CD C:\Program Files (x86)\Graphviz2.38\bin \"")
         #s.system("dot.exe -Tjpg grafo.dot -o imagen.jpg")
-      
+    def graficar2(self):
+        from graphviz import Digraph as g
+        dot = g(comment='The Round Table')
+        aux = self.inicio
+        texto = "digraph G{\n"
+        while aux is not None:
+            dot.node(str(aux.id), str(aux.valor))
+            
+            if aux.siguiente is not None:                
+                dot.edge(str(aux.id),str(aux.siguiente.id))
+                texto += str(aux.id)+" -> " +str(aux.siguiente.id)+"\n"
+            if aux.anterior is not None:
+                dot.edge(str(aux.id),str(aux.anterior.id))
+                texto += str(aux.id)+" -> " +str(aux.anterior.id)+"\n"
+            texto += str(aux.id)+" [label=\" "+str(aux.valor)+" \"]\n"
+            aux = aux.siguiente
+        texto += "}"
+        print(texto)
+        #dot.render(filename="prueba.gv",directory="C:\Users\argue\OneDrive\Documents\NetBeansProjects",view=True,cleanup=False)
+        dot.render('round-table.dot', view=True)
+    def graficar3(self):
+        print("a")
+
     def imprimir(self):
         if self.inicio==None:
             print("Lista vacia")
@@ -211,5 +235,5 @@ if __name__ == "__main__":
     dob.insertar_final(400)
     dob.insertar_final(500)
     # GRAFICAR
-    dob.graficar1()
+    dob.graficar2()
     

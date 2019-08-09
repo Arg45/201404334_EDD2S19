@@ -1,10 +1,10 @@
-import doble as dob       
+from doble import Doble as dob 
 
 class clasePrincipal:
     def metodoUnico(self):
         print("ads")
 
-        dob.Doble().imprimir()
+        dob.imprimir(self)
         # 5 INSERCIONES AL INICIO
         dob.Doble().insertar_inicio(10)
         dob.Doble().insertar_inicio(20)

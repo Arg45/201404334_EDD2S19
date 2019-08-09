@@ -1,23 +1,27 @@
-from doble import Doble as dob 
+from doble import Doble
+
+
+
+
 
 class clasePrincipal:
     def metodoUnico(self):
         print("ads")
+        Doble().imprimir()
 
-        dob.imprimir(self)
         # 5 INSERCIONES AL INICIO
-        dob.Doble().insertar_inicio(10)
-        dob.Doble().insertar_inicio(20)
-        dob.Doble().insertar_inicio(30)
-        dob.Doble().insertar_inicio(40)
-        dob.Doble().insertar_inicio(50)
-        dob.Doble().imprimir()
+        Doble().insertar_inicio(10)
+        Doble().insertar_inicio(20)
+        Doble().insertar_inicio(30)
+        Doble().insertar_inicio(40)
+        Doble().insertar_inicio(50)
+        Doble().imprimir()
         # 5 INSERCIONES AL FINAL
-        """dob.Doble().insertar_final(100)
-        dob.Doble().insertar_final(200)
-        dob.Doble().insertar_final(300)
-        dob.Doble().insertar_final(400)
-        dob.Doble().insertar_final(500)"""
+        Doble().insertar_final(100)
+        Doble().insertar_final(200)
+        Doble().insertar_final(300)
+        Doble().insertar_final(400)
+        Doble().insertar_final(500)
     # GRAFICAR
         #dob.Doble().graficar()
         # 5 INSERCIONES EN POSICIONES
@@ -27,6 +31,7 @@ class clasePrincipal:
         # ELIMINAR POR MEDIO DEL INDICE
         # GRAFICAR
         #dob.Doble().graficar()
+        Doble().imprimir()
 
 if __name__ == "__main__":
     cp = clasePrincipal()

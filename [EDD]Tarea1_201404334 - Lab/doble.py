@@ -5,7 +5,7 @@ class Nodo:
         self.valor = Valor
         self.siguiente = None
         self.anterior = None
-class Doble:
+class Doble():
     cod = 1
     def __init__ (self):
         self.inicio = None

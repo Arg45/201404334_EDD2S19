@@ -115,7 +115,7 @@ class Doble():
         from graphviz import Digraph as g
         dot = g(comment='The Round Table')
         aux = self.inicio
-        texto = "digraph G{\n"
+        texto = "digraph G{\nrankdir=LR\n"
         while aux is not None:
             dot.node(str(aux.id), str(aux.valor))
             

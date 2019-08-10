@@ -1,3 +1,4 @@
+from os import system
 class Nodo:
     def __init__ (self, Id = None, Valor = None):
         self.id = Id

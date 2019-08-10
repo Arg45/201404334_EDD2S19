@@ -6,7 +6,7 @@ from os import system
 class pruebaImportarArchivos:
     def m(self):
         #print("metodo en el mismo archivo")
-
+        
         #a2.laotraclase.metodounico(self)
         #Doble().metodounico()
         Doble().imprimir()
